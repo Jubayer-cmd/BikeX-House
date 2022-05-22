@@ -5,7 +5,7 @@ function componentName() {
   return (
     <div>
       <Spinner
-        className=" dflex justify-content-center align-items-center"
+        className=" dflex justify-content-center mx-auto"
         animation="border"
         role="status"
       >

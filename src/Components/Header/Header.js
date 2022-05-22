@@ -65,19 +65,19 @@ const Header = () => {
               >
                 Portfolio
               </NavLink>
-              <NavLink
-                as={Link}
-                to="/dashboard"
-                className={({ isActive }) =>
-                  isActive
-                    ? "fs-5 text-warning px-3"
-                    : "fs-5 text-white text-decoration-none px-3"
-                }
-              >
-                Dashboard
-              </NavLink>
               {user ? (
                 <>
+                  <NavLink
+                    as={Link}
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "fs-5 text-warning px-3"
+                        : "fs-5 text-white text-decoration-none px-3"
+                    }
+                  >
+                    Dashboard
+                  </NavLink>
                   <NavLink
                     as={Link}
                     to="/order"

@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Headlight",
+    "image": "https://5.imimg.com/data5/IL/OI/MY-2107628/6142-bike-it-round-headlight-black-1600-1-250x250.jpg",
+    "description": "This is best headlight in market",
+    "minimumQuantity": "80",
+    "availableQuantity": "100",
+    "price": "$1245"
+  },
+  {
+    "name": "Pedal",
+    "image": "https://images.giant-bicycles.com/b_white,c_pad,h_850,q_80/p9adfslrnlluniqqy4d8/GIANT-ORIGINAL-MTB-BLACK-230000085.jpg",
+    "description": "This is the part that a cyclist places their feet on. The pedal is attached to the crank which is the component that the cyclist rotates to spin the chain which in turn provides the bicycles power.",
+    "minimumQuantity": "120",
+    "availableQuantity": "2000",
+    "price": "$1398"
+  },
+  {
+    "name": "Seat",
+    "image": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2021%2F03%2F18%2Fbikeroo-oversized-comfort-bike-seat-most-comfortable-replacement-bicycle-saddlet-AMZN-BK0321.jpg",
+    "description": "Small triangular seat attached to the bicycles frame.",
+    "minimumQuantity": "180",
+    "availableQuantity": "780",
+    "price": "$1515"
+  },
+  {
+    "name": "Front derailleur",
+    "image": "https://cd.bike-discount.de/media/image/99/33/ca/Shimano_105-FD-R7000-2x11-fach-Umwerfer-Anlot_IFDR7000FL.jpg",
+    "description": "Mechanism for changing the front gears by lifting the chain from one chain wheel to another; it allows the cyclist to adapt to road conditions.",
+    "minimumQuantity": "250",
+    "availableQuantity": "3500",
+    "price": "$841"
+  },
+  {
+    "name": "Rear derailleur",
+    "image": "https://www.sram.com/globalassets/image-hierarchy/sram-product-root-images/derailleurs---rear/derailleurs---rear/rd-gx-1-a1/my16gxrd11spdred.jpg?w=800&quality=80&format=jpg",
+    "description": "Mechanism for changing the rear gears by lifting the chain from one gear wheel to another; it allows the cyclist to adapt to road conditions.",
+    "minimumQuantity": "354",
+    "availableQuantity": "3654",
+    "price": "$9844"
+  },
+  {
+    "name": "Rear brake",
+    "image": "https://ae01.alicdn.com/kf/Hfa8ad49df44942b8b544e382554b89494/TEKTRO-HD-M285-M275-Hydraulic-Disc-Brake-MTB-Bicycle-Front-Rear-Brakes-800-1500mm-witha-160.jpg_Q90.jpg_.webp",
+    "description": "Mechanism activated by a brake cable, comprising a caliper and return springs; it forces a pair of brake pads against the sidewalls to stop the bicycle.",
+    "minimumQuantity": "354",
+    "availableQuantity": "1278",
+    "price": "$1166"
+  },
+  {
+    "name": "Crossbar",
+    "image": "https://www.ubuy.com.bd/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNzFuYmxZWGY2QkwuX0FDX1NMMTUwMF8uanBn.jpg",
+    "description": "Horizontal part of the frame, connecting the head tube with the seat tube and stabilizing the frame.",
+    "minimumQuantity": "654",
+    "availableQuantity": "2344",
+    "price": "$154"
+  },
+  {
+    "name": "Down tube",
+    "image": "https://www.ubuy.com.bd/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNzFuYmxZWGY2QkwuX0FDX1NMMTUwMF8uanBn.jpg",
+    "description": "Part of the frame connecting the head tube to the pedal mechanism; it is the longest and thickest tube in the frame and gives it its rigidity.",
+    "minimumQuantity": "445",
+    "availableQuantity": "1895",
+    "price": "$2547"
+  },
+  {
+    "name": "Spoke",
+    "image": "https://42796r1ctbz645bo223zkcdl-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/iStock_000020239661_Medium-744x744.jpg",
+    "description": "Small clack valve sealing the inflation opening of the inner tube; it allows air to enter but prevents it from escaping.",
+    "minimumQuantity": "384",
+    "availableQuantity": "6542",
+    "price": "$4856"
+  },
+  {
+    "name": "Tire",
+    "image": "https://image.shutterstock.com/image-photo/sport-bicycle-tire-spoke-wheel-260nw-63868528.jpg",
+    "description": "Structure made of cotton and steel fibers coated with rubber, mounted on the rim to form the casing for the inner tube.",
+    "minimumQuantity": "874",
+    "availableQuantity": "8455",
+    "price": "$1500"
+  },
+  {
+    "name": "Brake lever",
+    "image": "https://static-01.daraz.com.bd/p/dc18be5e330b6006baa6e65565d51719.jpg",
+    "description": "Part whose height is adjustable; it is inserted into the head tube and supports the handlebars.",
+    "minimumQuantity": "250",
+    "availableQuantity": "800",
+    "price": "$124"
+  }
+]
