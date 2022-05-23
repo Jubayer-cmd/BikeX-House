@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useRef } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import {
@@ -8,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useToken from "../Hooks/useToken";
 import Loading from "../Loading/Loading";
 import auth from "./../../firebase.init";
 
@@ -23,6 +23,8 @@ const Signin = () => {
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
+
+  const [token] = useToken(user || gUser);
 
   useEffect(() => {
     if (user || gUser) {
@@ -46,13 +48,6 @@ const Signin = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     await signInWithEmailAndPassword(email, password);
-
-    const { data } = await axios.post(
-      "https://evening-mesa-55779.herokuapp.com/login",
-      { email }
-    );
-    localStorage.setItem("accessToken", data.accessToken);
-    navigate(from, { replace: true });
   };
 
   const resetPassword = async () => {

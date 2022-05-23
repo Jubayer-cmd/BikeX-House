@@ -11,6 +11,7 @@ const Header = () => {
   const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
     toast("Logging Out successfully");
     navigate("/");
   };

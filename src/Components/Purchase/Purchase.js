@@ -9,6 +9,7 @@ const Purchase = () => {
   const [user] = useAuthState(auth);
   const { id } = useParams();
   const [parts, setParts] = useState({});
+  const [activityChanged, setActivityChanged] = useState(false);
   useEffect(() => {
     const url = `http://localhost:5000/parts/${id}`;
     fetch(url)
@@ -16,6 +17,7 @@ const Purchase = () => {
       .then((data) => setParts(data));
   }, [id]);
   const {
+    _id,
     name,
     image,
     description,
@@ -31,11 +33,42 @@ const Purchase = () => {
       parseInt(quantity) > parseInt(availableQuantity) ||
       parseInt(quantity) < parseInt(minimumQuantity)
     ) {
+      setActivityChanged(true);
       toast.error(
         "Quantity should be bigger then minimum quantity and less than available quantity"
       );
     } else {
-      alert("kaaj kore na");
+      const quantity = event.target.quantity.value;
+      const userName = user.displayName;
+      const phone = event.target.phone.value;
+      const email = user.email;
+      const address = event.target.address.value;
+      const buy = {
+        partsId: _id,
+        name: name,
+        image: image,
+        description: description,
+        quantity: quantity,
+        price: price,
+        userName: userName,
+        email: email,
+        phone: phone,
+        address: address,
+      };
+      console.log(buy);
+      fetch("http://localhost:5000/purchase", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(buy),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            toast.success("Place order successfully!");
+          }
+        });
     }
   };
   return (
@@ -111,6 +144,7 @@ const Purchase = () => {
                 className=" w-100 mb-2 bg-primary text-white border-0 p-2 rounded "
                 type="submit"
                 value="Buy"
+                disabled={activityChanged}
               />
             </form>
           </div>

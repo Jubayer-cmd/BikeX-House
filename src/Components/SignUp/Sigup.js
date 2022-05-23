@@ -6,12 +6,20 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "./../../firebase.init";
+import useToken from "./../Hooks/useToken";
 
 const Sigup = () => {
-  const [createUserWithEmailAndPassword, loading, error] =
+  const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile] = useUpdateProfile(auth);
+
   const navigate = useNavigate();
+
+  const [token] = useToken(user);
+
+  if (token) {
+    navigate("/");
+  }
 
   const handleRegister = async (event) => {
     event.preventDefault();

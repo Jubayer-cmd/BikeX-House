@@ -6,6 +6,7 @@ import Dashing from "./Components/Dashing/Dashing";
 import Order from "./Components/Dashing/Order";
 import Profile from "./Components/Dashing/Profile";
 import Review from "./Components/Dashing/Review";
+import Users from "./Components/Dashing/Users";
 import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import NotFound from "./Components/NotFound/NotFound";
@@ -46,6 +47,7 @@ function App() {
           <Route index element={<Profile></Profile>}></Route>
           <Route path="review" element={<Review></Review>}></Route>
           <Route path="order" element={<Order></Order>}></Route>
+          <Route path="users" element={<Users></Users>}></Route>
         </Route>
       </Routes>
     </div>
