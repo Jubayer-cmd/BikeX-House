@@ -27,6 +27,7 @@ const Order = () => {
       }
     };
     getOrders();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const handleDelete = (id) => {
@@ -44,18 +45,18 @@ const Order = () => {
   const handleCancel = (id) => {
     swal({
       title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
+      text: "Once deleted, you will not be able to recover this order!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
         handleDelete(id);
-        swal("Poof! Your imaginary file has been deleted!", {
+        swal("Poof! Your order has been deleted!", {
           icon: "success",
         });
       } else {
-        swal("Your imaginary file is safe!");
+        swal("Your order is safe!");
       }
     });
   };

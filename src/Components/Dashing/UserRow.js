@@ -1,5 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 const UserRow = ({ use, refetch, index }) => {
   const { email, role } = use;
@@ -23,6 +24,39 @@ const UserRow = ({ use, refetch, index }) => {
         }
       });
   };
+
+  const handleDelete = (email) => {
+    const url = `http://localhost:5000/user/${email}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
+      });
+  };
+
+  const handleDeleteUser = (email) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this user",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        handleDelete(email);
+        swal("Poof! User has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your cancel the delete!");
+      }
+    });
+  };
   return (
     <tr>
       <th>{index + 1}</th>
@@ -35,7 +69,9 @@ const UserRow = ({ use, refetch, index }) => {
         )}
       </td>
       <td>
-        <button class="btn btn-primary">Remove User</button>
+        <button class="btn btn-primary" onClick={() => handleDeleteUser(email)}>
+          <i class="bi bi-trash"></i> Remove User
+        </button>
       </td>
     </tr>
   );

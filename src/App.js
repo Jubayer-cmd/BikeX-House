@@ -2,7 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
 import Blogs from "./Components/Blogs/Blogs";
+import AddProducts from "./Components/Dashing/AddProducts";
 import Dashing from "./Components/Dashing/Dashing";
+import ManageOrder from "./Components/Dashing/ManageOrder";
+import ManageProducts from "./Components/Dashing/ManageProducts";
 import Order from "./Components/Dashing/Order";
 import Profile from "./Components/Dashing/Profile";
 import Review from "./Components/Dashing/Review";
@@ -53,6 +56,30 @@ function App() {
             element={
               <RequireAdmin>
                 <Users></Users>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageOrder"
+            element={
+              <RequireAdmin>
+                <ManageOrder></ManageOrder>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageProduct"
+            element={
+              <RequireAdmin>
+                <ManageProducts></ManageProducts>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="addProduct"
+            element={
+              <RequireAdmin>
+                <AddProducts></AddProducts>
               </RequireAdmin>
             }
           ></Route>
