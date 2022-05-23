@@ -1,17 +1,13 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
-import { Button, Modal, Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import auth from "../../firebase.init";
 import axiosPrivate from "./../../api/axiosPrivate";
-
 const Order = () => {
   const [orders, setOrders] = useState([]);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
   useEffect(() => {
@@ -33,7 +29,36 @@ const Order = () => {
     getOrders();
   }, [user]);
 
-  const handleCancel = (id) => {};
+  const handleDelete = (id) => {
+    const url = `http://localhost:5000/purchase/${id}`;
+    fetch(url, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const remaining = orders.filter((service) => service._id !== id);
+        setOrders(remaining);
+      });
+  };
+
+  const handleCancel = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        handleDelete(id);
+        swal("Poof! Your imaginary file has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        swal("Your imaginary file is safe!");
+      }
+    });
+  };
   return (
     <div className="text-center">
       <h1 className="text-primary my-3">My order:{orders.length}</h1>
@@ -79,7 +104,7 @@ const Order = () => {
                 {!a.paid ? (
                   <Button
                     className="bg-danger"
-                    onClick={() => handleShow(a._id)}
+                    onClick={() => handleCancel(a._id)}
                   >
                     <i class="bi bi-trash"></i> Cancel
                   </Button>
@@ -92,30 +117,6 @@ const Order = () => {
             </tr>
           ))}
         </tbody>
-        <>
-          <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Modal title</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              I will not close if you click outside me. Don't even try to press
-              escape key.
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant="danger" onClick={() => handleCancel()}>
-                Confirm
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
       </Table>
     </div>
   );
