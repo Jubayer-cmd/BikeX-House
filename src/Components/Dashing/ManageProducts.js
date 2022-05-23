@@ -9,7 +9,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/parts", {
+    fetch("https://morning-castle-26727.herokuapp.com/parts", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

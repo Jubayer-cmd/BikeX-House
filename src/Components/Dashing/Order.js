@@ -13,7 +13,7 @@ const Order = () => {
   useEffect(() => {
     const getOrders = async () => {
       const email = user?.email;
-      const url = `http://localhost:5000/purchase?email=${email}`;
+      const url = `https://morning-castle-26727.herokuapp.com/purchase?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         setOrders(data);
@@ -31,7 +31,7 @@ const Order = () => {
   }, [user]);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/purchase/${id}`;
+    const url = `https://morning-castle-26727.herokuapp.com/purchase/${id}`;
     fetch(url, {
       method: "DELETE",
     })

@@ -18,7 +18,7 @@ const ManageProdcutRows = ({ part, index, refetch }) => {
     navigate("/dashboard/addProduct");
   };
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/parts/${id}`;
+    const url = `https://morning-castle-26727.herokuapp.com/parts/${id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

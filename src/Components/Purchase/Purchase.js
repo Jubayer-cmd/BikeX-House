@@ -11,7 +11,7 @@ const Purchase = () => {
   const [parts, setParts] = useState({});
   const [activityChanged, setActivityChanged] = useState(false);
   useEffect(() => {
-    const url = `http://localhost:5000/parts/${id}`;
+    const url = `https://morning-castle-26727.herokuapp.com/parts/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setParts(data));
@@ -56,7 +56,7 @@ const Purchase = () => {
         address: address,
       };
       console.log(buy);
-      fetch("http://localhost:5000/purchase", {
+      fetch("https://morning-castle-26727.herokuapp.com/purchase", {
         method: "POST",
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

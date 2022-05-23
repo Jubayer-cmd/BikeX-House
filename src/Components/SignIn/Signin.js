@@ -25,6 +25,7 @@ const Signin = () => {
   let from = location.state?.from?.pathname || "/";
 
   const [token] = useToken(user || gUser);
+  console.log(token);
 
   useEffect(() => {
     if (user || gUser) {

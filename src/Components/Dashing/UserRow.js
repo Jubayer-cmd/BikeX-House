@@ -5,7 +5,7 @@ import swal from "sweetalert";
 const UserRow = ({ use, refetch, index }) => {
   const { email, role } = use;
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://morning-castle-26727.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -26,7 +26,7 @@ const UserRow = ({ use, refetch, index }) => {
   };
 
   const handleDelete = (email) => {
-    const url = `http://localhost:5000/user/${email}`;
+    const url = `https://morning-castle-26727.herokuapp.com/user/${email}`;
     fetch(url, {
       method: "DELETE",
       headers: {

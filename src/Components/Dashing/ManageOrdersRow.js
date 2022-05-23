@@ -7,7 +7,7 @@ const ManageOrdersRow = ({ buy, index, refetch }) => {
   console.log(buy);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/purchase/${id}`;
+    const url = `https://morning-castle-26727.herokuapp.com/purchase/${id}`;
     fetch(url, {
       method: "DELETE",
       headers: {
