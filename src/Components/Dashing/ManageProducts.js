@@ -1,10 +1,24 @@
 import React from "react";
 import { Table } from "react-bootstrap";
-import useParts from "../Hooks/useParts";
+import { useQuery } from "react-query";
+import Loading from "../Loading/Loading";
 import ManageProdcutRows from "./ManageProdcutRows";
-
 const ManageProducts = () => {
-  const [parts, setParts] = useParts[{}];
+  const {
+    data: parts,
+    isLoading,
+    refetch,
+  } = useQuery("users", () =>
+    fetch("http://localhost:5000/parts", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
   return (
     <div>
       <h1>Manage product</h1>
@@ -14,9 +28,10 @@ const ManageProducts = () => {
             <th>Number</th>
             <th>images</th>
             <th>Name</th>
-            <th>Quantity</th>
+            <th>Description</th>
             <th>price</th>
-            <th>Email</th>
+            <th>Minimum Quantity</th>
+            <th>Available Quantity</th>
             <th></th>
           </tr>
         </thead>
@@ -26,7 +41,7 @@ const ManageProducts = () => {
               key={part._id}
               part={part}
               index={index}
-              setParts={setParts}
+              refetch={refetch}
             ></ManageProdcutRows>
           ))}
         </tbody>

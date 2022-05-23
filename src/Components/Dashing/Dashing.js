@@ -34,7 +34,7 @@ const Dashing = () => {
                 <Link to="/dashboard/manageOrder">Manage Order</Link>
               </ListGroup.Item>
               <ListGroup.Item>
-                <Link to="/dashboard/manageProduct">Manage Product</Link>
+                <Link to="/dashboard/manageProducts">Manage Product</Link>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Link to="/dashboard/addProduct">Add Product</Link>

@@ -68,7 +68,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="manageProduct"
+            path="manageProducts"
             element={
               <RequireAdmin>
                 <ManageProducts></ManageProducts>
