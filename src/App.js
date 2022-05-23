@@ -12,6 +12,7 @@ import Home from "./Components/Home/Home";
 import NotFound from "./Components/NotFound/NotFound";
 import Portfolio from "./Components/Portfolio/Portfolio";
 import Purchase from "./Components/Purchase/Purchase";
+import RequireAdmin from "./Components/RequireAdmin/RequireAdmin";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import Signin from "./Components/SignIn/Signin";
 import Sigup from "./Components/SignUp/Sigup";
@@ -47,7 +48,14 @@ function App() {
           <Route index element={<Profile></Profile>}></Route>
           <Route path="review" element={<Review></Review>}></Route>
           <Route path="order" element={<Order></Order>}></Route>
-          <Route path="users" element={<Users></Users>}></Route>
+          <Route
+            path="users"
+            element={
+              <RequireAdmin>
+                <Users></Users>
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
       </Routes>
     </div>

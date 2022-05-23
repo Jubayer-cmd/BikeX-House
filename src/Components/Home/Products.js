@@ -29,7 +29,7 @@ const Products = ({ product }) => {
         <ListGroupItem>Minimum Quantity: {minimumQuantity}</ListGroupItem>
       </ListGroup>
       <Card.Body className="text-center">
-        <Button onClick={() => navigateToPartsDetail(_id)}>Update</Button>
+        <Button onClick={() => navigateToPartsDetail(_id)}>Buy</Button>
       </Card.Body>
     </Card>
   );

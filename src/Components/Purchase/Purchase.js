@@ -39,9 +39,9 @@ const Purchase = () => {
       );
     } else {
       const quantity = event.target.quantity.value;
-      const userName = user.displayName;
+      const userName = event.target.name.value;
       const phone = event.target.phone.value;
-      const email = user.email;
+      const email = event.target.email.value;
       const address = event.target.address.value;
       const buy = {
         partsId: _id,
@@ -59,6 +59,7 @@ const Purchase = () => {
       fetch("http://localhost:5000/purchase", {
         method: "POST",
         headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
           "content-type": "application/json",
         },
         body: JSON.stringify(buy),
@@ -101,8 +102,9 @@ const Purchase = () => {
                 className=" w-100 mb-2 p-2"
                 type="text"
                 name="name"
-                value={user.displayName}
-                readOnly
+                value={user?.displayName}
+                placeholder="UserName"
+                required
               />{" "}
               <br />
               <input
