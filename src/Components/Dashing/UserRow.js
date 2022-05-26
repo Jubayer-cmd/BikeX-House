@@ -69,7 +69,7 @@ const UserRow = ({ use, refetch, index }) => {
         )}
       </td>
       <td>
-        <button class="btn btn-primary" onClick={() => handleDeleteUser(email)}>
+        <button class="btn btn-danger" onClick={() => handleDeleteUser(email)}>
           <i class="bi bi-trash"></i> Remove User
         </button>
       </td>
