@@ -28,7 +28,7 @@ const Dashing = () => {
           {admin && (
             <>
               <ListGroup.Item>
-                <Link to="/dashboard/users">Users</Link>
+                <Link to="/dashboard/users">Make Admin</Link>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Link to="/dashboard/manageOrder">Manage Order</Link>

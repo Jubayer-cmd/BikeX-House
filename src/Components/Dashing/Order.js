@@ -9,13 +9,12 @@ import Loading from "../Loading/Loading";
 
 const Order = () => {
   const [user] = useAuthState(auth);
-  const email = user?.email;
   const {
     data: orders,
     isLoading,
     refetch,
-  } = useQuery("order", () =>
-    fetch(`http://localhost:5000/purchase/${email}`, {
+  } = useQuery("ordering", () =>
+    fetch(`http://localhost:5000/order/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

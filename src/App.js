@@ -7,6 +7,7 @@ import Dashing from "./Components/Dashing/Dashing";
 import ManageOrder from "./Components/Dashing/ManageOrder";
 import ManageProducts from "./Components/Dashing/ManageProducts";
 import Order from "./Components/Dashing/Order";
+import Payments from "./Components/Dashing/Payments";
 import Profile from "./Components/Dashing/Profile";
 import Review from "./Components/Dashing/Review";
 import Users from "./Components/Dashing/Users";
@@ -49,6 +50,10 @@ function App() {
           }
         >
           <Route index element={<Profile></Profile>}></Route>
+          <Route
+            path="/dashboard/payment/:id"
+            element={<Payments></Payments>}
+          ></Route>
           <Route path="review" element={<Review></Review>}></Route>
           <Route path="order" element={<Order></Order>}></Route>
           <Route
