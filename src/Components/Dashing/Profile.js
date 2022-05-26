@@ -16,7 +16,7 @@ const Profile = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch(`http://localhost:5000/profile/${email}`, {
+    fetch(`https://morning-castle-26727.herokuapp.com/profile/${email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -44,7 +44,7 @@ const Profile = () => {
       education: education,
     };
     // console.log(reviews);
-    fetch(`http://localhost:5000/profile/${email}`, {
+    fetch(`https://morning-castle-26727.herokuapp.com/profile/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

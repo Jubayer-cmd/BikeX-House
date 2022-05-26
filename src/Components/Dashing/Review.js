@@ -17,7 +17,7 @@ const Review = () => {
       username: user?.displayName,
     };
     // console.log(reviews);
-    fetch("http://localhost:5000/review", {
+    fetch("https://morning-castle-26727.herokuapp.com/review", {
       method: "POST",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

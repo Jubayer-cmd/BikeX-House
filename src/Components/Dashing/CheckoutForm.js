@@ -13,7 +13,7 @@ const CheckoutForm = ({ Payment }) => {
   const { _id, price, name, email } = Payment;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://morning-castle-26727.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -76,7 +76,7 @@ const CheckoutForm = ({ Payment }) => {
         appointment: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`http://localhost:5000/purchase/${_id}`, {
+      fetch(`https://morning-castle-26727.herokuapp.com/purchase/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -118,13 +118,13 @@ const CheckoutForm = ({ Payment }) => {
           Pay
         </button>
       </form>
-      {cardError && <p className="text-red-500">{cardError}</p>}
+      {cardError && <p className="text-danger">{cardError}</p>}
       {success && (
-        <div className="text-green-500">
+        <div className="text-sucsess">
           <p>{success} </p>
           <p>
             Your transaction Id:{" "}
-            <span className="text-orange-500 font-bold">{transactionId}</span>{" "}
+            <span className="text-warning">{transactionId}</span>{" "}
           </p>
         </div>
       )}

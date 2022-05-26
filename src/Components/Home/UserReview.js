@@ -3,7 +3,7 @@ import UserRow from "./UserRow";
 const UserReview = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://morning-castle-26727.herokuapp.com/review")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [review]);

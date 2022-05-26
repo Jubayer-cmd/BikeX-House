@@ -12,7 +12,7 @@ const stripePromise = loadStripe(
 const Payments = () => {
   const { id } = useParams();
   const { data: Payment, isLoading } = useQuery("payments", () =>
-    fetch(`http://localhost:5000/purchase/${id}`, {
+    fetch(`https://morning-castle-26727.herokuapp.com/purchase/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
