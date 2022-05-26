@@ -18,6 +18,8 @@ const AddProducts = () => {
         if (data.insertedId) {
           reset();
           toast.success("Place order successfully!");
+        } else {
+          toast.error("Fail to add product!");
         }
       });
   };

@@ -12,7 +12,7 @@ const Parts = () => {
         <p>Top selling Parts</p>
       </header>
       <div className="product-container">
-        {part.slice(0, 6).map((product) => (
+        {part.slice(-6).map((product) => (
           <Products key={product._id} product={product}></Products>
         ))}
       </div>

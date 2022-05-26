@@ -2,3 +2,9 @@
   max-height: 80vh;
   object-fit: cover;
 }
+@media only screen and (max-width: 600px) {
+  .distra {
+    display: block !important;
+    margin: 0 auto;
+  }
+}

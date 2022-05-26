@@ -9,8 +9,8 @@ const Dashing = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   return (
-    <div className="d-flex">
-      <div className="w-25 my-3 mx-3 text-center">
+    <div className="d-flex distra">
+      <div className="w-25 my-3 mx-3 sm:d-block text-center">
         <ListGroup>
           <ListGroup.Item>
             <Link to="/dashboard">My Profile</Link>
@@ -43,7 +43,7 @@ const Dashing = () => {
           )}
         </ListGroup>
       </div>
-      <div className="mx-auto">
+      <div className="container mx-auto">
         <Outlet></Outlet>
       </div>
     </div>
