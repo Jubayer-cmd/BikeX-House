@@ -35,7 +35,7 @@ const Purchase = () => {
     ) {
       setActivityChanged(true);
       toast.error(
-        "Quantity should be bigger then minimum quantity and less than available quantity"
+        "Quantity should be bigger then minimum quantity and less than available quantity [Button has been disabled]"
       );
     } else {
       const quantity = event.target.quantity.value;
@@ -138,7 +138,7 @@ const Purchase = () => {
                 type="number"
                 name="quantity"
                 id=""
-                placeholder="Quantity"
+                placeholder={minimumQuantity}
                 required
               />{" "}
               <br />
