@@ -9,7 +9,7 @@ const ManageOrder = () => {
     data: purchase,
     isLoading,
     refetch,
-  } = useQuery("users", () =>
+  } = useQuery("adminorder", () =>
     fetch("https://morning-castle-26727.herokuapp.com/purchase", {
       method: "GET",
       headers: {

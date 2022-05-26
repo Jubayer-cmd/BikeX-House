@@ -8,7 +8,7 @@ const Users = () => {
     data: user,
     isLoading,
     refetch,
-  } = useQuery("users", () =>
+  } = useQuery("usersss", () =>
     fetch("https://morning-castle-26727.herokuapp.com/user", {
       method: "GET",
       headers: {

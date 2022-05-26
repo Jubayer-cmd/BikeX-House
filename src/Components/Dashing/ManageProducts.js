@@ -8,7 +8,7 @@ const ManageProducts = () => {
     data: parts,
     isLoading,
     refetch,
-  } = useQuery("users", () =>
+  } = useQuery("off", () =>
     fetch("https://morning-castle-26727.herokuapp.com/parts", {
       method: "GET",
       headers: {

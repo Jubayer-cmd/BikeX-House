@@ -1,34 +1,30 @@
-import { signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import auth from "../../firebase.init";
-import axiosPrivate from "./../../api/axiosPrivate";
+import Loading from "../Loading/Loading";
+
 const Order = () => {
-  const [orders, setOrders] = useState([]);
-  const navigate = useNavigate();
   const [user] = useAuthState(auth);
-  useEffect(() => {
-    const getOrders = async () => {
-      const email = user?.email;
-      const url = `https://morning-castle-26727.herokuapp.com/purchase?email=${email}`;
-      try {
-        const { data } = await axiosPrivate.get(url);
-        setOrders(data);
-      } catch (error) {
-        console.log(error.message);
-        if (error.response.status === 401 || error.response.status === 403) {
-          signOut(auth);
-          localStorage.removeItem("accessToken");
-          navigate("/login");
-        }
-      }
-    };
-    getOrders();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  const email = user?.email;
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery("order", () =>
+    fetch(`http://localhost:5000/purchase/${email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
+  );
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   const handleDelete = (id) => {
     const url = `https://morning-castle-26727.herokuapp.com/purchase/${id}`;
@@ -37,8 +33,7 @@ const Order = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        const remaining = orders.filter((service) => service._id !== id);
-        setOrders(remaining);
+        refetch();
       });
   };
 
