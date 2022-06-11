@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import swal from "sweetalert";
 
 const ManageOrdersRow = ({ buy, index, refetch }) => {
-  const { _id, image, name, quantity, price, email } = buy;
+  const [ship, setShip] = useState(false);
+  const { _id, image, name, quantity, price, email, paid } = buy;
   console.log(buy);
 
   const handleDelete = (id) => {
@@ -49,10 +50,14 @@ const ManageOrdersRow = ({ buy, index, refetch }) => {
       <td>{price}</td>
       <td>{email}</td>
       <td>
-        <Button className="btn-danger" onClick={() => handleDeleteOrder(_id)}>
-          <i class="bi bi-trash"></i> Cancel
-        </Button>
+        {!paid && (
+          <Button className="btn-danger" onClick={() => handleDeleteOrder(_id)}>
+            <i class="bi bi-trash"></i> Cancel
+          </Button>
+        )}
+        {ship && <p className="text-success">Shipped</p>}
       </td>
+      <td>{paid && <Button onClick={() => setShip(true)}>pending</Button>}</td>
     </tr>
   );
 };
